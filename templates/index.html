@@ -1,63 +1,135 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Housing Price Predictor</title>
-        <link rel="stylesheet" href="../static/style.css">
-    </head>
-    <body>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Housing Price Predictor</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+<div class="card">
+
+    <div class="header">
         <h1>Housing Price Predictor</h1>
+        <p>California Real Estate Valuator</p>
+    </div>
 
-        <form action="/predict" method="POST">
+    <form action="/predict" method="POST">
 
-            <label>Longitude</label>
-            <input type="number" step="0.01" name="longitude" required>
+        <div class="grid">
 
-            <label>Latitude</label>
-            <input type="number" step="0.01" name="latitude" required>
+            <div class="field">
+                <label>Longitude</label>
+                <input type="number"
+                       step="0.01"
+                       name="longitude"
+                       required>
+            </div>
 
-            <label>Housing Median Age</label>
-            <input type="number" name="housing_median_age" required>
+            <div class="field">
+                <label>Latitude</label>
+                <input type="number"
+                       step="0.01"
+                       name="latitude"
+                       required>
+            </div>
 
-            <label>Total Rooms</label>
-            <input type="number" name="total_rooms" required>
+            <div class="field">
+                <label>Housing Age</label>
+                <input type="number"
+                       name="housing_median_age"
+                       required>
+            </div>
 
-            <label>Total Bedrooms</label>
-            <input type="number" name="total_bedrooms" required>
+            <div class="field">
+                <label>Total Rooms</label>
+                <input type="number"
+                       name="total_rooms"
+                       required>
+            </div>
 
-            <label>Population</label>
-            <input type="number" name="population" required>
+            <div class="field">
+                <label>Total Bedrooms</label>
+                <input type="number"
+                       name="total_bedrooms"
+                       required>
+            </div>
 
-            <label>Households</label>
-            <input type="number" name="households" required>
+            <div class="field">
+                <label>Population</label>
+                <input type="number"
+                       name="population"
+                       required>
+            </div>
 
-            <label>Median Income</label>
-            <input type="number" step="0.0001" name="median_income" required>
+            <div class="field">
+                <label>Households</label>
+                <input type="number"
+                       name="households"
+                       required>
+            </div>
 
-            <label>Ocean Proximity</label>
+            <div class="field">
+                <label>Median Income</label>
+                <input type="number"
+                       step="0.0001"
+                       name="median_income"
+                       required>
+            </div>
 
-            <select name="ocean_proximity">
+            <div class="field">
+                <label>Ocean Proximity</label>
 
-                <option value="NEAR BAY">NEAR BAY</option>
-                <option value="INLAND">INLAND</option>
-                <option value="NEAR OCEAN">NEAR OCEAN</option>
-                <option value="ISLAND">ISLAND</option>
-                <option value="<1H OCEAN">&lt;1H OCEAN</option>
+                <select name="ocean_proximity">
 
-            </select>
+                    <option>NEAR BAY</option>
+                    <option>INLAND</option>
+                    <option>NEAR OCEAN</option>
+                    <option>ISLAND</option>
+                    <option>&lt;1H OCEAN</option>
 
-            <button type="submit">Predict House Value</button>
+                </select>
 
-        </form>
+            </div>
+
+        </div>
+
+        <button type="submit">
+            Predict Price
+        </button>
+
+    </form>
 
 
+    {% if prediction %}
 
-        {% if prediction %}
-        <hr>
-        <h2>Predicted House Value</h2>
-        <h2>${{ "{:,.0f}".format(prediction|float) }}</h2>
-        {% endif %}
+    <div class="prediction">
 
-    </body>
+        <p>Estimated Property Value</p>
 
+        <h2>
+            ${{ "{:,.0f}".format(prediction|float) }}
+        </h2>
+
+    </div>
+
+    {% endif %}
+
+</div>
+
+</body>
 </html>
