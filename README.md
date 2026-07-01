@@ -1,3 +1,14 @@
+---
+title: Housing Price Predictor
+emoji: 🏠
+colorFrom: blue
+colorTo: green
+sdk: docker
+app_port: 7860
+---
+
+**Hugging Face Spaces deployment:** Create a Space on Hugging Face and push the project folder there, it will start building and start the app. then check app in app sction.
+
 # California Housing Price Predictor
 
 A simple Machine Learning web application built with Flask that predicts house prices using the California Housing dataset.
@@ -65,14 +76,14 @@ housing-price-predictor/
 
 ---
 
-## Technologies Used
+## Tech Stack
 
-- Python
-- Flask
-- Pandas
-- NumPy
-- Scikit-Learn
-- Joblib
+![Python](https://img.shields.io/badge/python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Flask](https://img.shields.io/badge/flask-000000?style=for-the-badge&logo=flask&logoColor=white)
+![Pandas](https://img.shields.io/badge/pandas-150458?style=for-the-badge&logo=pandas&logoColor=white)
+![NumPy](https://img.shields.io/badge/numpy-013243?style=for-the-badge&logo=numpy&logoColor=white)
+![Scikit-Learn](https://img.shields.io/badge/scikit_learn-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white)
+![Joblib](https://img.shields.io/badge/joblib-4479A1?style=for-the-badge&logo=python&logoColor=white)
 
 ---
 
